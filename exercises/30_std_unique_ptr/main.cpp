@@ -41,20 +41,41 @@ int main(int argc, char **argv) {
     drop(forward(reset(nullptr)));
     problems[0] = std::move(RECORDS);
 
+    std::cout << "Problems[0] size: " << problems[0].size() << std::endl;
+    std::cout << "Problems[0] contents: ";
+    for (const auto &record : problems[0]) {
+        std::cout << record << " ";
+    }
+    std::cout << std::endl;
+
     forward(drop(reset(forward(forward(reset(nullptr))))));
     problems[1] = std::move(RECORDS);
 
+    std::cout << "Problems[1] size: " << problems[1].size() << std::endl;
+    std::cout << "Problems[1] contents: ";
+    for (const auto &record : problems[1]) {
+        std::cout << record << " ";
+    }
+    std::cout << std::endl;
+    
     drop(drop(reset(drop(reset(reset(nullptr))))));
     problems[2] = std::move(RECORDS);
 
+    std::cout << "Problems[2] size: " << problems[2].size() << std::endl;
+    std::cout << "Problems[2] contents: ";
+    for (const auto &record : problems[2]) {
+        std::cout << record << " ";
+    }
+    std::cout << std::endl;
+    
     // ---- 不要修改以上代码 ----
 
     std::vector<const char *> answers[]{
         {"fd"},
         // TODO: 分析 problems[1] 中资源的生命周期，将记录填入 `std::vector`
         // NOTICE: 此题结果依赖对象析构逻辑，平台相关，提交时以 CI 实际运行平台为准
-        {"", "", "", "", "", "", "", ""},
-        {"", "", "", "", "", "", "", ""},
+        {"d", "ffr"},
+        {"d", "d", "r"},
     };
 
     // ---- 不要修改以下代码 ----

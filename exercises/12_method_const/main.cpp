@@ -5,7 +5,12 @@
 struct Fibonacci {
     int numbers[11];
     // TODO: 修改方法签名和实现，使测试通过
-    int get(int i) {
+    int get(int i) const {
+        // READ: constexpr <https://zh.cppreference.com/w/cpp/language/constexpr>
+        // READ: constexpr 函数 <https://zh.cppreference.com/w/cpp/language/constexpr_function>
+        // READ: constexpr 变量 <https://zh.cppreference.com/w/cpp/language/constexpr_variable>
+        // READ: constexpr 成员函数 <https://zh.cppreference.com/w/cpp/language/constexpr_member_function>
+        return numbers[i];
     }
 };
 

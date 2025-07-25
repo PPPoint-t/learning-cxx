@@ -7,11 +7,19 @@
 template<class k, class v>
 bool key_exists(std::map<k, v> const &map, k const &key) {
     // TODO: 实现函数
+    auto it = map.find(key);
+    return it != map.end();
 }
 
 template<class k, class v>
 void set(std::map<k, v> &map, k key, v value) {
     // TODO: 实现函数
+    auto it = map.find(key);
+    if (it != map.end()) {
+        it->second = value; // 如果键已存在，更新其值
+    } else {
+        map.insert({key, value}); // 如果键不存在，插入新的键值对
+    }
 }
 
 // ---- 不要修改以下代码 ----
